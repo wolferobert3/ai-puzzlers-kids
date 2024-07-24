@@ -513,7 +513,7 @@ function requestExplanation() {
         console.log(data.choices[0].message.content);
 
         output = data.choices[0].message.content;
-        div_target.html('ChatGPT says: ' + output);
+        div_target.html('AI says: ' + output);
 
         // Enable the buttons again.
         askButton.disabled = false;
