@@ -259,7 +259,7 @@ function askChatGPT() {
 
     // If no checkboxes are checked, print an error message to the explanation text.
     if (checked.length == 0) {
-        errorMsg('Error! GPT needs at least one example to be able to try the puzzle!');
+        errorMsg('Error! AI needs at least one example to be able to try the puzzle!');
         return;
     }
 
@@ -368,7 +368,7 @@ function askChatGPT() {
 	};
 
     // Use process message to tell the user that the model is working.
-    processMsg('Sending data to GPT...');
+    processMsg('Sending data to AI...');
 
     // Get buttons and disable them.
     var askButton = document.getElementById('askChatGPT');
@@ -412,7 +412,7 @@ function askChatGPT() {
         for (var i = 1; i < rows.length; i++) {
             var row = rows[i].split(', ');
             if (row.length != width) {
-                errorMsg('Error! GPT could not create a valid output grid.');
+                errorMsg('Error! AI could not create a valid output grid.');
                 return;
             }
         }
@@ -452,7 +452,7 @@ function requestExplanation() {
 
     // Check if last message is from assistant - if not, print an error message.
     if (MESSAGES[MESSAGES.length - 1].role != "assistant") {
-        errorMsg('Error! GPT cannot explain if it has not generated the grid first!');
+        errorMsg('Error! AI cannot explain if it has not generated the grid first!');
         return;
     }
 
@@ -461,7 +461,7 @@ function requestExplanation() {
 
     // Check if the model has been changed - if so, print an error message.
     if (model != MODEL) {
-        errorMsg('Error! GPT cannot explain if the model has been changed!');
+        errorMsg('Error! AI cannot explain if the model has been changed!');
         return;
     }
 
@@ -488,7 +488,7 @@ function requestExplanation() {
 	};
 
     // Use process message to tell the user that the model is working.
-    processMsg('Sending message to GPT...');
+    processMsg('Sending message to AI...');
 
     // Get buttons and disable them.
     var askButton = document.getElementById('askChatGPT');
