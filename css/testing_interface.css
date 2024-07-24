@@ -1,0 +1,613 @@
+body {
+    font-family: 'Lexend', sans-serif; /* Updated to Lexend for improved readability */
+    background-color: #ADD8E6; /* Light sky blue background */
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+    margin: 10px;
+}
+
+
+h1 {
+    font-family: 'Lexend', sans-serif; /* Consistency in font usage */
+    color: #333; /* Slightly darker text for headings */
+    font-size: 70px; /* Larger size for main heading */
+    margin-top: 20px; /* Space above the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* #workspace {
+    width: 1410px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+#workspace {
+    width: 80%; /* Responsive width */
+    margin: 0 auto; /* Centering the workspace */
+    padding: 20px; /* Padding inside the workspace */
+    border-radius: 15px; /* Rounded corners */
+    background-color:#ADD8E6; /* A lighter shade of blue for content background */
+}
+
+#demonstration_examples_view {
+    margin: 10px auto;
+    width: 45%;
+    padding: 10px; /* Increased padding for more space */
+    border: 2px solid #ccc; /* Wider border with a lighter color */
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8; /* Light background color */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    color: #333; /* Text color */
+    float: left;
+  }
+/* 
+#demonstration_examples_view {
+  margin: 10px auto;
+  width: 450px;
+  padding: 20px; 
+  border: 2px solid #ccc; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8; 
+  border-radius: 10px; 
+  color: #333; 
+  float: left;
+} */
+
+#evaluation_view {
+  margin: 10px auto;
+  margin-left: 5px;
+  min-height: 850px;
+  width: 45%;
+  border: 2px solid #ccc; /* Wider border with a lighter color */
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8; /* Light background color */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  float: right;
+  align-items: center;
+}
+
+#evaluation-input-view, #evaluation_output_editor {
+    width: 500px; /* Ensures both elements have the same width */
+    margin: 10px auto; /* Same top/bottom margin and auto margins on left/right for centering */
+    display: flex;
+    justify-content: center; /* This will center the children horizontally */
+    align-items: center; /* This will center the children vertically, if needed */
+    flex-direction: column; /* Stacks the children vertically */
+  }
+
+/* #evaluation-input-view {
+    float: left;
+    width: 500px;
+    margin: 10px;
+}
+
+#evaluation_output_editor {
+    float: left;
+    width: 500px;
+    margin-bottom: 20px;
+} */
+
+#load_task_control_btns {
+    background-color: #f0f8ff; /* Light pastel blue background for the container */
+    padding: 20px; /* Padding around the content for spacing */
+    border-radius: 12px; /* Rounded corners for a friendly appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Centering the container and adding vertical space */
+    width: 80%; /* Responsive width */
+    text-align: center; /* Center text alignment */
+}
+
+/* Label displaying task information */
+#task_name {
+    font-family: 'Lexend', sans-serif; /* Using Lexend for readability */
+    color: #333; /* Dark grey for visibility */
+    font-size: 18px; /* Sizeable font for easy reading */
+    margin-bottom: 15px; /* Space below the label */
+    display: block; /* Ensure it takes the full width */
+}
+
+/* Button to load the next puzzle */
+#random_task_btn {
+    background-color: #4CAF50; /* Green background for visibility and engagement */
+    color: white; /* White text for contrast */
+    padding: 15px 30px; /* Generous padding for easier interaction */
+    font-size: 20px; /* Larger font size for readability */
+    border-radius: 8px; /* Soft rounded corners */
+    border: none; /* Removing default browser styling */
+    cursor: pointer; /* Cursor change to indicate interactivity */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+/* Hover effect for the button */
+#random_task_btn:hover {
+    background-color: #008080; /* Teal color for a playful hover effect */
+    box-shadow: 0 2px 20px rgba(0, 128, 128, 0.2); /* Adding a shadow on hover for depth */
+}
+
+#random_task_btn:active {
+    background-color: #006666; /* Darker teal color when button is clicked */
+    transform: translateY(2px); /* Slight downward movement on click */
+}
+
+#previous_task_btn {
+    background-color: #FF6347; /* Red background for visibility and engagement */
+    color: white; /* White text for contrast */
+    padding: 15px 30px; /* Generous padding for easier interaction */
+    font-size: 20px; /* Larger font size for readability */
+    border-radius: 8px; /* Soft rounded corners */
+    border: none; /* Removing default browser styling */
+    cursor: pointer; /* Cursor change to indicate interactivity */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+#previous_task_btn:hover {
+    background-color: #008080; /* Teal color for a playful hover effect */
+    box-shadow: 0 2px 20px rgba(0, 128, 128, 0.2); /* Adding a shadow on hover for depth */
+}
+
+#previous_task_btn:active {
+    background-color: #006666; /* Darker teal color when button is clicked */
+    transform: translateY(2px); /* Slight downward movement on click */
+}
+
+#load_task_btn {
+    background-color:#a323c0; /* Green background for visibility and engagement */
+    color: white; /* White text for contrast */
+    padding: 15px 30px; /* Generous padding for easier interaction */
+    font-size: 20px; /* Larger font size for readability */
+    border-radius: 8px; /* Soft rounded corners */
+    border: none; /* Removing default browser styling */
+    cursor: pointer; /* Cursor change to indicate interactivity */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+#load_task_btn:hover {
+    background-color: #008080; /* Teal color for a playful hover effect */
+    box-shadow: 0 2px 20px rgba(0, 128, 128, 0.2); /* Adding a shadow on hover for depth */
+}
+
+#load_task_btn:active {
+    background-color: #006666; /* Darker teal color when button is clicked */
+    transform: translateY(2px); /* Slight downward movement on click */
+}
+
+#load_task_row {
+    display: flex; /* Flexbox for alignment */
+    justify-content: center; /* Centering the buttons */
+    align-items: center;
+    margin: 10px auto; /* Center the element horizontally and provide top and bottom margin */
+    /*background-color: #FFFFFF; /* White background */
+    width: 70%; /* Set width to 90% of its container */
+    max-width: 550px; /* Limit the maximum width to 600px */
+    padding: 15px; /* Add padding to the top and bottom */
+    border: 2px solid #a323c0; /* 2px solid border with color #a323c0 */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+#create_random_task_btn {
+    background-color:pink; /* Green background for visibility and engagement */
+    color: white; /* White text for contrast */
+    padding: 15px 30px; /* Generous padding for easier interaction */
+    font-size: 20px; /* Larger font size for readability */
+    border-radius: 8px; /* Soft rounded corners */
+    border: none; /* Removing default browser styling */
+    cursor: pointer; /* Cursor change to indicate interactivity */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+    display: none;
+}
+
+#create_random_task_btn:hover {
+    background-color: #008080; /* Teal color for a playful hover effect */
+    box-shadow: 0 2px 20px rgba(0, 128, 128, 0.2); /* Adding a shadow on hover for depth */
+}
+
+#create_random_task_btn:active {
+    background-color: #006666; /* Darker teal color when button is clicked */
+    transform: translateY(2px); /* Slight downward movement on click */
+}
+
+#editor_grid_control_btns, #gpt_control_btns {
+    margin: 10px auto; /* Center the element horizontally and provide top and bottom margin */
+    background-color: #FFFFFF; /* White background */
+    width: 80%; /* Set width to 90% of its container */
+    max-width: 600px; /* Limit the maximum width to 600px */
+    padding: 15px; /* Add padding to the top and bottom */
+    border: 2px solid #a323c0; /* 2px solid border with color #a323c0 */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+#resize_control_btns {
+    width: 100%;
+    float:left;
+    margin-bottom: 10px;
+}
+
+#submit_solution_btn {
+    padding: 5px;
+    color: #FFFFFF; /* White text color for better contrast */
+    max-width: 150px;
+    font-size: 15px;
+    background-color: #a323c0;
+    border: 2.5px solid black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#submit_solution_btn:hover {
+    background-color: rgb(130, 130, 245);
+    color: #fff;
+}
+
+#submit_solution_btn:active {
+    background: rgb(130, 130, 245);
+    transform: translateY(2px);
+}
+
+#askChatGPT {
+    padding: 5px;
+    color: #FFFFFF; /* White text color for better contrast */
+    max-width: 200px;
+    font-size: large;
+    background-color: #4CAF50;
+    border: 2.5px solid black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#askChatGPT:hover {
+    background-color: rgb(130, 130, 245);
+    color: #fff;
+}
+
+#askChatGPT:active {
+  background: rgb(130, 130, 245);
+  transform: translateY(2px);
+}
+
+#askChatGPT:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#explanation_btn {
+    padding: 5px;
+    color: #FFFFFF; /* White text color for better contrast */
+    max-width: 200px;
+    font-size: large;
+    background-color: #FF6347;
+    border: 2.5px solid black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#explanation_btn:hover {
+    background-color: rgb(130, 130, 245);
+    color: #fff;
+}
+
+#explanation_btn:active {
+  background: rgb(130, 130, 245);
+  transform: translateY(2px);
+}
+
+#explanation_btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#check_gpt_btn {
+    padding: 5px;
+    color: #FFFFFF; /* White text color for better contrast */
+    max-width: 200px;
+    font-size: large;
+    background-color: #5a3bf6;
+    border: 2.5px solid black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#example_checkboxes {
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: #333;
+}
+
+#gpt_version_dropdown {
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: #333;
+    font-size: large;
+}
+
+#gpt_directions_textinput {
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: #333;
+    font-size: large;
+    height: fit-content;
+    font-family: 'Lexend', sans-serif;
+}
+
+#explanation_text, #explanation {
+    margin: 10px auto;
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: #333;
+}
+
+#task_dropdown {
+    margin: 5px auto;
+    padding: 10px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: #333;
+    font-size: large;
+}
+
+button:focus {outline:0;}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label::before {
+    content: " ";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #a323c0;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: #a323c0;
+    border: 2px solid #a323c0;
+}
+
+#symbol_picker {
+    position: fixed;
+    top: 53%;
+    right: 1.5%;
+    transform: translateY(-50%);
+    padding: 5px;
+    color: #a323c0;
+    max-width: 150px;
+    font-size: 30px;
+    background-color: #d0b6ff; /* Background color */
+    border: 2.5px solid #a323c0; /* Border with the same color as text */
+    border-radius: 0px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth color transition on hover */
+    display: flex;
+    flex-direction: column; /* Make it a vertical column */
+    justify-content: flex-start; /* Align items to the top of the column */
+    align-items: flex-end; /* Align items to the right of the column */
+}
+
+.symbol_preview {
+    width: 35px;
+    height: 35px;
+    border-radius: 0px;
+    /* margin-left: 20px; Add margin for spacing between previews */
+}
+
+#symbol_picker:hover {
+    background-color: #f5f0f0;; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+.checkbox_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gpt_questions_top {
+    margin-bottom: 10px;
+}
+
+.gpt_checkbox_question {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+
+label {
+    margin-left: 10px;
+}
+
+input, button {
+    margin-left: 10px;
+}
+
+#resize_btn {
+    margin-left: 0;
+}
+
+/*Task demonstration*/
+
+.pair_preview {
+    height: 250px;
+    padding: 5px;
+    border-bottom: solid 5px #a1a1a1;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+}
+.input_preview {
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+.output_preview {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin-left: 35px;
+}
+
+.text {
+    text-align: center;
+    background: #f8f8f8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#task_demo_header {
+    margin: 10px;
+}
+
+#pattern_explanation {
+    margin: 10px;
+}
+
+
+#modal_bg {
+    background-color: black;
+    width: 100%;
+    min-height: 10000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#modal {
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 100px;
+    width: 500px;
+    margin-top: 100px;
+}
+
+#modal input {
+    margin-left: 70px;
+}
+
+#clone {
+    position: fixed;
+    top: 79.9%;
+    right: 1.5%;
+    transform: translateY(-50%);
+    padding: 10px;
+    color: #a323c0;
+    max-width: 142px;
+    font-size: 30px;
+    background-color: #f5f0f0; /* Background color */
+    border: 2px solid #a323c0; /* Border with the same color as text */
+    border-radius: 0px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth color transition on hover */
+  }
+  
+  #clone:hover {
+    background-color: #a323c0; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+
+  #reset {
+    position: fixed;
+    top: 87%;
+    right: 1.5%;
+    transform: translateY(-50%);
+    padding: 10px;
+    color: #a323c0;
+    max-width: 142px;
+    font-size: 30px;
+    background-color: #f5f0f0; /* Background color */
+    border: 2px solid #a323c0; /* Border with the same color as text */
+    border-radius: 0px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth color transition on hover */
+  }
+  
+  #reset:hover {
+    background-color: #a323c0; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+  }
+
+
+  #error_display, #info_display, #process_display {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+#error_display {
+    background-color: #ff3860; /* Red color for errors */
+}
+#info_display {
+    background-color: #23d160; /* Green color for success */
+}
+#process_display {
+    background-color: #209cee; /* Blue color for process updates */
+    display: none;
+}
+
+/* Style for Before and After header */
+#before_after {
+    text-align: center; /* Centers the text within the div */
+    margin: 5px 0; /* Reduces vertical space above and below this div */
+    white-space: nowrap; /* Keeps Before and After on one line */
+  }
+  
+  /* Style for Before text */
+  #before_text {
+    color: #ff5319; /* Set your desired color for Before */
+     /* Adds space between Before and After */
+  }
+  
+  /* Style for After text */
+  #after_text {
+    color: #7207f5; /* Set your desired color for After */
+  }

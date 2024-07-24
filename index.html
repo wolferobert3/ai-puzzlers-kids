@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AI Puzzlers!</title>
+        <script src="https://kit.fontawesome.com/473e8f3a80.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/testing_interface.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+		rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/testing_interface.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <h1>AI Puzzlers</h1>
+        <div id="load_task_control_btns">
+            <label id='task_name' for="random_task_btn"> Abstraction Concept: </label>
+            <p>
+            <button onclick="previousTask()" id="previous_task_btn"> Previous Puzzle </button>
+            <button onclick="randomTask()" id="random_task_btn"> Next Puzzle </button>
+            <div id="load_task_row">
+            <label for="task_dropdown">Or, Choose a Puzzle: </label>
+            <select id="task_dropdown">
+                <option value="0">Select a Puzzle</option>
+            </select>
+            <button onclick="selectTaskFromDropDown()" id="load_task_btn">Load Puzzle</button>
+            </div>
+            <button onclick="createRandomTaskFromGrids()" id="create_random_task_btn"> Make a Random Puzzle! </button>
+        </div>
+        <div id="workspace">
+            <div id="demonstration_examples_view">
+                <div class="text" id="task_demo_header">Step 1: See the Pattern</div>
+                <div class="text" id="pattern_explanation" style="font-size: 0.8em"> 
+                    This section shows examples of how to change the first picture (left) into the second picture (right) 
+                    by following a special pattern or rule.
+                </div>
+                <div class="text" id="before_after">
+                    <span id="before_text">Before</span>
+                    <span id="after_text" style="margin-left: 150px;">After</span>
+                  </div>
+
+                <!-- <div class="text" id="before_after">
+                    <span>Before</span><span style="margin-left: 180px;">After</span>
+                  </div> -->
+                <div id="task_preview"></div>
+            </div>
+
+            <div id="evaluation_view">
+                <div id="evaluation-input-view">
+                    <div class="text">Step 2: Your Turn!</div>
+                    <div class="text" id="pattern_explanation" style="font-size: 0.8em"> 
+                    Use the rules you saw in the examples to solve a new puzzle below. 
+                </div>
+                    <div class="text" id="before_after">
+                    <span id="before_text">Before</span>
+                    </div>
+                    <div id="evaluation_input" class="selectable_grid"></div>
+                </div>
+
+                <div id="evaluation_output_editor">
+                    <div id="edition_view">
+                        <div id="editor_grid_control_btns">
+                            <div id="resize_control_btns">
+                                <label for="output_grid_size">Change grid size: </label>
+                                <input type="text" id="output_grid_size" class="grid_size_field" name="size" value="3x3">
+                                <button onclick="resizeOutputGrid()" id="resize_btn">Resize</button>
+                            </div>
+
+                            <button id="clone" onclick="copyFromInput()"><i class="fas fa-clone"></i></button>
+                            <button id="reset" onclick="resetOutputGrid()"><i class="fas fa-sync"></i></button>
+                            <input type="radio" id="tool_edit"
+                                 name="tool_switching" value="edit" checked>
+                                <label for="tool_edit">Edit</label>
+                                <input type="radio" id="tool_select"
+                                 name="tool_switching" value="select">
+                                <label for="tool_select">Select</label>
+                                <input type="radio" id="tool_floodfill"
+                                 name="tool_switching" value="floodfill">
+                                <label for="tool_floodfill">Flood fill</label>
+                            <button onclick="submitSolution()" id="submit_solution_btn">Submit Puzzle</button>
+                        </div>
+                        <div id="gpt_control_btns">
+                            <div class="gpt_questions_top">Test if ChatGPT can solve the puzzles.</div>
+                            <button onclick="askChatGPT()" id="askChatGPT">Ask GPT to Answer</button>
+                            <button onclick="requestExplanation()" id="explanation_btn">Ask GPT to Explain</button>
+                            <br>
+                            <div class="gpt_checkbox_question">Which examples should we show GPT?
+                            <div id="example_checkboxes"></div>
+                            </div>
+                            <div class="gpt_checkbox_question">Which version of GPT should we ask?
+                                <select id="gpt_version_dropdown">
+                                    <option value="gpt-3.5-turbo">GPT-3.5-Turbo</option>
+                                    <option value="gpt-4o-mini">GPT-4o-Mini</option>
+                                    <option value="gpt-4o">GPT-4o</option>
+                                    <option value="gpt-4-turbo">GPT-4-Turbo</option>
+                                </select>
+                            </div>
+                            <div class="gpt_checkbox_question">What directions should we give GPT?
+                                <textarea id="gpt_directions_textinput" value="" placeholder="Enter directions here."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div id="evaluation_output_editor" style="position: relative;">
+                            <div id="process_display"></div>
+                            <div id="error_display"></div>
+                            <div id="info_display"></div>
+                            <div id="output_grid">
+                                <span id="after_text">After</span>
+                                <div class="edition_grid selectable_grid">
+                                    <div class="row">
+                                        <div class="cell" symbol="0" x="0" y="0"></div>
+                                        <div class="cell" symbol="0" x="0" y="1"></div>
+                                        <div class="cell" symbol="0" x="0" y="2"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell" symbol="0" x="1" y="0"></div>
+                                        <div class="cell" symbol="0" x="1" y="1"></div>
+                                        <div class="cell" symbol="0" x="1" y="2"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell" symbol="0" x="2" y="0"></div>
+                                        <div class="cell" symbol="0" x="2" y="1"></div>
+                                        <div class="cell" symbol="0" x="2" y="2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="explanation">GPT's explanation will be shown here.
+                                <div id="explanation_text"></div>
+                            </div>
+                            
+                        </div>
+
+                        <div id="symbol_picker">
+                            <div class="symbol_preview symbol_0 selected-symbol-preview" symbol="0"></div>
+                            <div class="symbol_preview symbol_1" symbol="1"></div>
+                            <div class="symbol_preview symbol_2" symbol="2"></div>
+                            <div class="symbol_preview symbol_3" symbol="3"></div>
+                            <div class="symbol_preview symbol_4" symbol="4"></div>
+                            <div class="symbol_preview symbol_5" symbol="5"></div>
+                            <div class="symbol_preview symbol_6" symbol="6"></div>
+                            <div class="symbol_preview symbol_7" symbol="7"></div>
+                            <div class="symbol_preview symbol_8" symbol="8"></div>
+                            <div class="symbol_preview symbol_9" symbol="9"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
