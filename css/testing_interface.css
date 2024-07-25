@@ -197,7 +197,6 @@ h1 {
     border: none; /* Removing default browser styling */
     cursor: pointer; /* Cursor change to indicate interactivity */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
-    display: none;
 }
 
 #create_random_task_btn:hover {
@@ -451,7 +450,6 @@ input[type="radio"]:checked + label::before {
 .gpt_checkbox_question {
     margin-bottom: 10px;
     margin-top: 10px;
-    display: none;
 }
 
 
